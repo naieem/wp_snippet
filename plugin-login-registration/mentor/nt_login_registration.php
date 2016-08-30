@@ -119,8 +119,14 @@ class nt_login_registration {
                 
                 <p>
                     <label for="upload files"><?php _e('Upload Files'); ?></label>
-                    <input name="upload_file" type="file" />
+                    <input name="upload_file[]" type="file" />
                 </p>
+                
+                <p>
+                    <label for="upload files"><?php _e('Upload Files'); ?></label>
+                    <input name="upload_file[]" type="file" />
+                </p>
+            
                 <p>
                     <input type="hidden" name="pippin_register_nonce" value="<?php echo wp_create_nonce('pippin-register-nonce'); ?>"/>
                     <input type="submit" value="<?php _e('Register Your Account'); ?>"  id="submit_form"/>
