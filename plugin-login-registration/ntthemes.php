@@ -25,8 +25,10 @@ define('NT_CPM_PLUGIN_URL', plugin_dir_url(__FILE__));
 require_once 'mentor/nt_login_registration.php';
 require_once 'mentor/nt_handle_ajax.php';
 require_once 'mentor/nt_meta_box.php';
+require_once 'mentor/nt_user_field.php';
 
 /* class declerations */
 new nt_login_registration();
 new nt_handle_ajax();
 new nt_meta_box();
+new nt_user_field();

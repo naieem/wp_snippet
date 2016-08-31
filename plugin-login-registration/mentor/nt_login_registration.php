@@ -25,7 +25,7 @@ class nt_login_registration {
 //        wp_enqueue_style('plugin-style');
 
         wp_enqueue_script('jquery');
-        
+
         wp_register_script('nt_custom', NT_CPM_PLUGIN_URL . 'assets/js/nt_custom.js', array('jquery'), '', TRUE);
         wp_enqueue_script('nt_custom');
         wp_localize_script('nt_custom', 'admin_ajax', array(
@@ -85,8 +85,7 @@ class nt_login_registration {
         <?php
         // show any error messages after form submission
         $this->pippin_show_error_messages();
-         $id = get_the_ID();
-         echo $id;
+        $id = get_the_ID();
         ?>
 
         <form id="pippin_registration_form" class="pippin_form" action="" method="POST" enctype="multipart/form-data">
@@ -95,7 +94,7 @@ class nt_login_registration {
                     <label for="pippin_user_Login"><?php _e('Username'); ?></label>
                     <input name="pippin_user_login" id="pippin_user_login" class="required" type="text"/>
                 </p>
-                <input type="hidden" value="<?php echo $id;?>" name="id">
+                <input type="hidden" value="<?php echo $id; ?>" name="id">
                 <p>
                     <label for="pippin_user_email"><?php _e('Email'); ?></label>
                     <input name="pippin_user_email" id="pippin_user_email" class="required" type="email"/>
@@ -116,17 +115,17 @@ class nt_login_registration {
                     <label for="password_again"><?php _e('Password Again'); ?></label>
                     <input name="pippin_user_pass_confirm" id="password_again" class="required" type="password"/>
                 </p>
-                
-                <p>
-                    <label for="upload files"><?php _e('Upload Files'); ?></label>
-                    <input name="upload_file[]" type="file" />
-                </p>
-                
-                <p>
-                    <label for="upload files"><?php _e('Upload Files'); ?></label>
-                    <input name="upload_file[]" type="file" />
-                </p>
-            
+
+        <!--                <p>
+            <label for="upload files"><?php _e('Upload Files'); ?></label>
+            <input name="upload_file[]" type="file" />
+        </p>
+
+        <p>
+            <label for="upload files"><?php _e('Upload Files'); ?></label>
+            <input name="upload_file[]" type="file" />
+        </p>-->
+
                 <p>
                     <input type="hidden" name="pippin_register_nonce" value="<?php echo wp_create_nonce('pippin-register-nonce'); ?>"/>
                     <input type="submit" value="<?php _e('Register Your Account'); ?>"  id="submit_form"/>
@@ -266,10 +265,22 @@ class nt_login_registration {
                     'role' => 'subscriber'
                         )
                 );
-                
+
                 if ($new_user_id) {
                     // send an email to the admin alerting them of the registration
                     wp_new_user_notification($new_user_id);
+                    $new_page_id = wp_insert_post(array(
+                        'post_title' => 'Blog',
+                        'post_type' => 'page',
+                        'post_name' => 'blog',
+                        'comment_status' => 'closed',
+                        'ping_status' => 'closed',
+                        'post_content' => '',
+                        'post_status' => 'draft',
+                        'menu_order' => 0,
+                        // Assign page template
+                        'page_template' => 'landing_page.php'
+                    ));
                     //update_usermeta($new_user_id, 'Facebook', "this is called bal");
                     // log the new user in
                     //wp_setcookie($user_login, $user_pass, true);

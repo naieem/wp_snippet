@@ -5,7 +5,7 @@
 (function ($) {
     'use strict';
     /*documentation js*/
-    $('#pippin_registration_form').on('submit', function (e) {
+    $('#pippin_registration_form1').on('submit', function (e) {
         e.preventDefault();
         //alert("df");
 //        var formdata = $("#pippin_registration_form").serialize();

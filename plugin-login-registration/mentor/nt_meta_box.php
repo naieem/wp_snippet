@@ -23,9 +23,9 @@ class nt_meta_box {
     public function bg_image() {
         global $post;
         $data = get_post_meta($post->ID, "bg_img", true);
-        echo '<label>Nr :</label><input type="text" name="bg_img" size="10" value="'.$data.'"/>';
+        echo '<label>Nr :</label><input type="text" style="width:100%;" name="bg_img" size="10" value="'.$data.'"/>';
     }
-
+    
     public function price_meta() {
         global $post;
         $data = get_post_meta($post->ID, "price_data", true);
@@ -39,13 +39,13 @@ class nt_meta_box {
                 foreach ($data as $p) {
                     foreach ($p as $value) {
                         //echo $value;
-                        echo '<li><label>Nr :</label><input type="text" name="price_data[' . $c . '][a]" size="10" value="' . $value . '"/><span class="remove button button-primary button-large">Remove</span></li>';
+                        echo '<li><label>Nr :</label><input type="text" style="width:100%;" name="price_data[' . $c . '][a]" size="10" value="' . $value . '"/><span class="remove button button-primary button-large">Remove</span></li>';
                         $c = $c + 1;
                     }
                 }
             }
         } else {
-            echo '<li><label>Nr :</label><input type="text" name="price_data[0][a]" size="10" value=""/><span class="remove button button-primary button-large">Remove</span></li>';
+            echo '<li><label>Nr :</label><input type="text" style="width:100%;" name="price_data[0][a]" size="10" value=""/><span class="remove button button-primary button-large">Remove</span></li>';
         }
         echo '</ul>';
         ?>

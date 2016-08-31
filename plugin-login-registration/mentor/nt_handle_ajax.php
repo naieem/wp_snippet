@@ -28,7 +28,7 @@ class nt_handle_ajax {
         //echo "<br.";
         //var_dump($_FILES);
         //echo $_FILES['upload_file']['type'];
-        echo $_POST['id'];
+        //echo $_POST['id'];
 //        $t = wp_check_filetype(basename($_FILES['upload_file']['name']));
 //        //var_dump($t);
 //        echo $t['type'];
