@@ -18,6 +18,13 @@ class nt_login_registration {
         add_action('init', array($this, 'pippin_add_new_member'));
         add_action('init', array($this, 'pippin_register_css'));
         add_action('wp_footer', array($this, 'pippin_print_css'));
+        add_action('wp_logout', array($this, 'redirect_url'));
+    }
+    
+    /* redirect WP Logout page to Homepage */
+    public function redirect_url() {
+        wp_redirect(home_url());
+        exit();
     }
 
     public function nt_add_custom_script() {
@@ -33,7 +40,7 @@ class nt_login_registration {
         ));
     }
 
-    // user registration login form
+// user registration login form
     public function pippin_registration_form() {
 
         // only show the registration form to non-logged-in members
@@ -60,7 +67,7 @@ class nt_login_registration {
 // user login form
     public function pippin_login_form() {
 
-        if (is_user_logged_in()) {
+        if (!is_user_logged_in()) {
 
             global $pippin_load_css;
 
@@ -68,11 +75,11 @@ class nt_login_registration {
             $pippin_load_css = true;
 
             $output = $this->pippin_login_form_fields();
+            return $output;
         } else {
             // could show some logged in user info here
             // $output = 'user info here';
         }
-        return $output;
     }
 
 // registration form fields
@@ -87,7 +94,6 @@ class nt_login_registration {
         $this->pippin_show_error_messages();
         $id = get_the_ID();
         ?>
-
         <form id="pippin_registration_form" class="pippin_form" action="" method="POST" enctype="multipart/form-data">
             <fieldset>
                 <p>
@@ -115,16 +121,20 @@ class nt_login_registration {
                     <label for="password_again"><?php _e('Password Again'); ?></label>
                     <input name="pippin_user_pass_confirm" id="password_again" class="required" type="password"/>
                 </p>
+                <p>
+                    <label for="page-title">Page Title</label>
+                    <input type="text" name="page_title" value="" required="">
+                </p>
 
-        <!--                <p>
-            <label for="upload files"><?php _e('Upload Files'); ?></label>
-            <input name="upload_file[]" type="file" />
-        </p>
+                    <!--                <p>
+                        <label for="upload files"><?php _e('Upload Files'); ?></label>
+                        <input name="upload_file[]" type="file" />
+                    </p>
 
-        <p>
-            <label for="upload files"><?php _e('Upload Files'); ?></label>
-            <input name="upload_file[]" type="file" />
-        </p>-->
+                    <p>
+                        <label for="upload files"><?php _e('Upload Files'); ?></label>
+                        <input name="upload_file[]" type="file" />
+                    </p>-->
 
                 <p>
                     <input type="hidden" name="pippin_register_nonce" value="<?php echo wp_create_nonce('pippin-register-nonce'); ?>"/>
@@ -174,7 +184,7 @@ class nt_login_registration {
         if (isset($_POST['pippin_user_login']) && wp_verify_nonce($_POST['pippin_login_nonce'], 'pippin-login-nonce')) {
 
             // this returns the user ID and other info from the user name
-            $user = get_userdatabylogin($_POST['pippin_user_login']);
+            $user = get_user_by('login', $_POST['pippin_user_login']);
 
             if (!$user) {
                 // if the user name doesn't exist
@@ -197,12 +207,13 @@ class nt_login_registration {
 
             // only log the user in if there are no errors
             if (empty($errors)) {
-
-                wp_setcookie($_POST['pippin_user_login'], $_POST['pippin_user_pass'], true);
+                wp_set_auth_cookie($user->ID, true);
                 wp_set_current_user($user->ID, $_POST['pippin_user_login']);
                 do_action('wp_login', $_POST['pippin_user_login']);
-
-                wp_redirect(home_url());
+                $page_id = esc_attr(get_the_author_meta('page_link', $user->ID));
+                $page_url = get_the_permalink($page_id);
+                //echo $page_id;
+                wp_redirect($page_url);
                 exit;
             }
         }
@@ -217,6 +228,7 @@ class nt_login_registration {
             $user_last = $_POST["pippin_user_last"];
             $user_pass = $_POST["pippin_user_pass"];
             $pass_confirm = $_POST["pippin_user_pass_confirm"];
+            $pass_title = $_POST["page_title"];
 
             // this is required for username checks
             require_once(ABSPATH . WPINC . '/registration.php');
@@ -245,6 +257,10 @@ class nt_login_registration {
                 // passwords do not match
                 $this->pippin_errors()->add('password_empty', __('Please enter a password'));
             }
+            if ($pass_title == '') {
+                // passwords do not match
+                $this->pippin_errors()->add('title_empty', __('Title field should not be empty'));
+            }
             if ($user_pass != $pass_confirm) {
                 // passwords do not match
                 $this->pippin_errors()->add('password_mismatch', __('Passwords do not match'));
@@ -270,9 +286,9 @@ class nt_login_registration {
                     // send an email to the admin alerting them of the registration
                     wp_new_user_notification($new_user_id);
                     $new_page_id = wp_insert_post(array(
-                        'post_title' => 'Blog',
+                        'post_title' => $pass_title,
                         'post_type' => 'page',
-                        'post_name' => 'blog',
+                        'post_name' => "$pass_title",
                         'comment_status' => 'closed',
                         'ping_status' => 'closed',
                         'post_content' => '',
@@ -281,7 +297,7 @@ class nt_login_registration {
                         // Assign page template
                         'page_template' => 'landing_page.php'
                     ));
-                    //update_usermeta($new_user_id, 'Facebook', "this is called bal");
+                    update_usermeta($new_user_id, 'page_link', $new_page_id);
                     // log the new user in
                     //wp_setcookie($user_login, $user_pass, true);
                     ////($new_user_id, $user_login);	
