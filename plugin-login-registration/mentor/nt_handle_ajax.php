@@ -79,8 +79,7 @@ class nt_handle_ajax {
          */
         add_action('wp_ajax_footer_update', array($this, 'footer_update'));
         add_action('wp_ajax_nopriv_footer_update', array($this, 'footer_update'));
-    }
-	
+    }	
 	/*
      * ##########
      * Return live result
@@ -106,7 +105,7 @@ class nt_handle_ajax {
                 $founder_img = get_post_meta($id, "founder_img", true);
                 $about_text = get_post_meta($id, "about_text", true);
                 $footer_text = get_post_meta($id, "footer_text", true);
-				?>
+		?>
                       
           <!-- Header text -->
   <div class="header_txt">
@@ -564,6 +563,7 @@ class nt_handle_ajax {
         update_post_meta($_POST['id'], 'menu', $_POST['menu']);
         $data['menu'] = $_POST['menu'];
 		$data['return_value']=$this->get_live_result($_POST['id']);
+
         echo json_encode($data);
         die();
     }
@@ -644,6 +644,7 @@ class nt_handle_ajax {
             $data['result'] = false;
         }
 		$data['return_value']=$this->get_live_result($_POST['id']);
+
         echo json_encode($data);
         die();
     }
@@ -752,6 +753,7 @@ class nt_handle_ajax {
         }
         update_post_meta($_POST['id'], 'why_points', $_POST['why_points']);
 		$data['return_value']=$this->get_live_result($_POST['id']);
+
         echo json_encode($data);
         die();
     }
@@ -772,7 +774,9 @@ class nt_handle_ajax {
             $data['result'] = true;
             update_post_meta($_POST['post_id'], $_POST['field'], "");
         }
+
 		$data['return_value']=$this->get_live_result($_POST['id']);
+
         echo json_encode($data);
         die();
     }

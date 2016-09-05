@@ -1,0 +1,514 @@
+<?php
+/**
+ * Template Name: Custom Landing
+ * @package WordPress
+ * @subpackage Twenty_sixteen
+ * @since 2016
+ */
+ ?>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Landig Page</title>
+
+    <!-- Bootstrap -->
+    <link href="<?php echo get_stylesheet_directory_uri(); ?>/custom_theme/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Owl Carousel -->
+    <link href="<?php echo get_stylesheet_directory_uri(); ?>/custom_theme/css/theme_default.css" rel="stylesheet">
+    <link href="<?php echo get_stylesheet_directory_uri(); ?>/custom_theme/css/owl.theme.css" rel="stylesheet">
+    <link href="<?php echo get_stylesheet_directory_uri(); ?>/custom_theme/css/owl.carousel.css" rel="stylesheet">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/custom_theme/css/font-awesome.css">
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/custom_theme/style.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+	
+	<div class="landingpage">
+		
+		<!-- Header text -->
+		<div class="header_txt">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-sm-6">
+						<p class="hdtst">Welcome to <span>Medical click !</span></p>
+					</div>
+					<div class="col-md-6 col-sm-6">
+						<ul class="social">
+							<li><a href="#"><i class="fa fa-envelope"></i></a></li>
+							<li><a href="#"><i class="fa fa-vimeo"></i></a></li>
+							<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Header text -->
+
+		<!-- Menu area -->
+		<div class="menu_area">
+			<div class="container">
+				<div class="row">
+					<nav class="navbar">
+					  <div class="container-fluid">
+					    <div class="navbar-header">
+					      	<button type="button" class="navbar-toggle mnav" data-toggle="collapse" data-target="#myNavbar">
+					        	<span class="icon-bar"></span>
+					        	<span class="icon-bar"></span>
+					        	<span class="icon-bar"></span>                        
+					      	</button>
+					      	<a class="navbar-brand logom" href="#">
+								<img src="<?php echo get_stylesheet_directory_uri(); ?>/custom_theme/images/logo.png" alt="Logo">
+					      	</a>
+					    </div>
+					    <div class="collapse navbar-collapse" id="myNavbar">
+					      	<ul class="nav navbar-nav navbar-right mainvav">
+					        	<li><a href="#">Home</a></li>
+					       		<li><a href="#">Request Information</a></li>
+					       		<li><a href="#">Contact Us</a></li>
+					       		<li><a href="#">Login</a></li>
+					       		<li><a href="#">Setup Free Account</a></li>
+					       		<li><a href="#">WPMS HTML Sitemap</a></li>
+					      	</ul>
+					    </div>
+					  </div>
+					</nav>
+				</div>
+			</div>
+		</div>
+		<!-- Menu area -->
+
+		<!-- Slider area -->
+		<div class="slider_area">
+			<h1>We are Medicus</h1>
+			<p>Claritas est etiam processus dynamicus, nem consuetudium
+			lectorum. Mirum est notare quam littera gothica</p>
+		</div>
+		<!-- Slider area -->
+
+		<!-- Tab area -->
+		<div class="tab_area">
+			<div class="container">
+				<div class="row">
+					<div class="mtabarea">
+						<ul class="nav nav-tabs">
+						 	 <li class="active"><a data-toggle="tab" href="#home">Make an Appointment</a></li>
+						 	 <li><a data-toggle="tab" href="#menu1">Call Us Today</a></li>
+						</ul>
+
+						<div class="tab-content">
+						  	<div id="home" class="tab-pane fade in active">
+						    	<div class="tabfrm">
+						    		<form action="index.html">
+						    			<ul class="selctst">
+						    				<li><input type="text" class="fild" placeholder="Full Name"></li>
+						    				<li><input type="text" class="fild" placeholder="Phone Number"></li>
+						    				<li><input type="text" class="fild" placeholder="Email"></li>
+						    				<li>
+						    					<select class="selopt">
+						    						<option>Select Department</option>
+						    						<option>Department</option>
+						    						<option>Department</option>
+						    						<option>Department</option>
+						    					</select>
+						    				</li>
+						    			</ul>
+						    			<ul class="selctst2">
+						    				<li><input type="text" class="fild" placeholder="26 - 07 - 2016"></li>
+						    				<li><input type="text" class="firl" placeholder="Message"></li>
+						    				<li><input type="submit" class="bokbtn" value="Book Now"></li>
+						    			</ul>
+						    		</form>
+						    	</div>
+						  	</div>
+						  	<div id="menu1" class="tab-pane fade">
+						    	<div class="tabfrm">
+						    		<form action="index.html">
+						    			<ul class="selctst">
+						    				<li><input type="text" class="fild" placeholder="Full Name"></li>
+						    				<li><input type="text" class="fild" placeholder="Phone Number"></li>
+						    				<li><input type="text" class="fild" placeholder="Email"></li>
+						    				<li>
+						    					<select class="selopt">
+						    						<option>Select Department</option>
+						    						<option>Department</option>
+						    						<option>Department</option>
+						    						<option>Department</option>
+						    					</select>
+						    				</li>
+						    			</ul>
+						    			<ul class="selctst2">
+						    				<li><input type="text" class="fild" placeholder="26 - 07 - 2016"></li>
+						    				<li><input type="text" class="firl" placeholder="Message"></li>
+						    				<li><input type="submit" class="bokbtn" value="Book Now"></li>
+						    			</ul>
+						    		</form>
+						    	</div>
+						  	</div>
+						</div>	
+					</div>
+				</div>				
+			</div>
+		</div>
+		<!-- Tab area -->
+
+		<!-- Why Choose -->
+		<div class="whychoose">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="whyc">
+							<h1 class="bord">Why <span>Choose</span> Us?</h1>
+							<p>Proven Marketing PPC Platform, Designed Specifically for Medical Practicess.</p>
+							<ul>
+								<li><i class="fa fa-check-circle" aria-hidden="true"></i> <span>Professional medical services</span>
+ 								</li>
+								<li><i class="fa fa-check-circle" aria-hidden="true"></i> <span>Dedicated patient care</span>
+ 								</li>
+								<li><i class="fa fa-check-circle" aria-hidden="true"></i> <span>Opening hours during weekend</span>
+ 								</li>
+								<li><i class="fa fa-check-circle" aria-hidden="true"></i> <span>Qualified medical equipment and facilities</span>
+ 								</li>
+								<li><i class="fa fa-check-circle" aria-hidden="true"></i> <span>Experienced specialists</span>
+ 								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="donimg">
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/custom_theme/images/doc.jpg" alt="Doctor">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Why Choose -->
+
+		<!-- Our Department -->
+		<div class="ourdept">
+			<div class="container">
+				<div class="row">
+					<div class="deptt">
+						<h1 class="bord">Our <span>Departments</span></h1>
+						<p>Proven Marketing PPC Platform, Designed Specifically for Medical Practicess.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="icon">
+						<div class="col-md-4 col-sm-6">
+							<div class="sicon">
+								<img src="<?php echo get_stylesheet_directory_uri(); ?>/custom_theme/images/icon1.png" alt="icon">
+								<h2>ENT Center</h2>
+								<p>Claritas est etiam processus dynamicus, nem consuetudium lectorum. Mirum est notare quam littera gothica</p>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<div class="sicon">
+								<img src="<?php echo get_stylesheet_directory_uri(); ?>/custom_theme/images/icon2.png" alt="icon">
+								<h2>ENT Center</h2>
+								<p>Claritas est etiam processus dynamicus, nem consuetudium lectorum. Mirum est notare quam littera gothica</p>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<div class="sicon">
+								<img src="<?php echo get_stylesheet_directory_uri(); ?>/custom_theme/images/icon3.png" alt="icon">
+								<h2>ENT Center</h2>
+								<p>Claritas est etiam processus dynamicus, nem consuetudium lectorum. Mirum est notare quam littera gothica</p>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<div class="sicon">
+								<img src="<?php echo get_stylesheet_directory_uri(); ?>/custom_theme/images/icon4.png" alt="icon">
+								<h2>ENT Center</h2>
+								<p>Claritas est etiam processus dynamicus, nem consuetudium lectorum. Mirum est notare quam littera gothica</p>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<div class="sicon">
+								<img src="<?php echo get_stylesheet_directory_uri(); ?>/custom_theme/images/icon5.png" alt="icon">
+								<h2>ENT Center</h2>
+								<p>Claritas est etiam processus dynamicus, nem consuetudium lectorum. Mirum est notare quam littera gothica</p>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<div class="sicon">
+								<img src="<?php echo get_stylesheet_directory_uri(); ?>/custom_theme/images/icon6.png" alt="icon">
+								<h2>ENT Center</h2>
+								<p>Claritas est etiam processus dynamicus, nem consuetudium lectorum. Mirum est notare quam littera gothica</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Our Department -->
+		
+		<!-- Our founder -->
+		<div class="ourfounder">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="fondr">
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/custom_theme/images/doc2.png" alt="doctr">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="fond">
+							<h1 class="bord">Our <span>founder</span></h1>
+							<p class="fontit">Proven Marketing PPC Platform, Designed Specifically for Medical Practicess.</p>
+							<h2>DR. NAHIDA HAQUE</h2>
+							<p class="fontit2">Claritas est etiam processus dynamicus, nem consuetudium lectorum. Mirum est notare quam littera gothica. Claritas est etiam processus dynamicus, nem consuetudium lectorum. Mirum est notare quam littera gothica</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Our founder -->
+
+		<!-- Testimonial area -->
+		<div class="testimonial">
+			<div class="col-md-6 testi">
+				<div id="testim" class="owl-carousel">
+					<div class="stestim">
+						<div class="mtdiv">
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+						</div>
+						<div class="timg">
+							<div class="imgr">
+								<img src="<?php echo get_stylesheet_directory_uri(); ?>/custom_theme/images/testi.png" alt="texti">
+							</div>
+							<h3>Paul Simon</h3>
+						</div>
+					</div>
+
+					<div class="stestim">
+						<div class="mtdiv">
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+						</div>
+						<div class="timg">
+							<div class="imgr">
+								<img src="<?php echo get_stylesheet_directory_uri(); ?>/custom_theme/images/testi.png" alt="texti">
+							</div>
+							<h3>Paul Simon</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 doctr">
+				<img src="<?php echo get_stylesheet_directory_uri(); ?>/custom_theme/images/doc3.png" alt="doc">
+			</div>
+		</div>
+		<!-- Testimonial area -->
+
+		<!-- Blog part -->
+		<div class="blog_embeb">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h1 class="letsn">Latest News</h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="sblog">
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/custom_theme/images/bloh.png" alt="Blog">
+							<div class="btxt">
+								<h4>Lorem Ipsum is simply dummy text of the</h4>
+								<p>Quisque vitae interdum ipsum. Nulla eget mper nulla. Proin lacinia urna quis tortorQuisque vitae interdum ipsum.</p>
+								<a href="#">Read More</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="sblog">
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/custom_theme/images/bloh.png" alt="Blog">
+							<div class="btxt">
+								<h4>Lorem Ipsum is simply dummy text of the</h4>
+								<p>Quisque vitae interdum ipsum. Nulla eget mper nulla. Proin lacinia urna quis tortorQuisque vitae interdum ipsum.</p>
+								<a href="#">Read More</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="sblog">
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/custom_theme/images/bloh.png" alt="Blog">
+							<div class="btxt">
+								<h4>Lorem Ipsum is simply dummy text of the</h4>
+								<p>Quisque vitae interdum ipsum. Nulla eget mper nulla. Proin lacinia urna quis tortorQuisque vitae interdum ipsum.</p>
+								<a href="#">Read More</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Blog part -->
+
+		<!-- Map area -->
+		<div class="maparea">
+			<div class="container">
+				<div class="mapi">
+					<h1>Would you like to find us</h1>
+					<a href="#">Goaogle Map</a>	
+				</div>
+			</div>
+		</div>
+		<!-- Map area -->
+
+		<!-- News letter -->
+		<div class="newsletter">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="news">
+							<h1><span>Sign up for our newsletter</span></h1>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore liqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris Ut enim ad minim veniam, quis nostrud</p>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="nfrm">
+							<ul>
+								<li><input type="text" class="emal" placeholder="Email"></li>
+								<li><input type="submit" class="sbt" value="SIGN UP"></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- News letter -->
+
+		<!-- Footer top area -->
+		<div class="footer_top">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<ul class="footermenu">
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Request Information</a></li>
+							<li><a href="#">Contact Us</a></li>
+							<li><a href="#">Login</a></li>
+							<li><a href="#">Setup Free Account</a></li>
+							<li><a href="#">WPMS HTML Sitemap</a></li>
+						</ul>	
+					</div>
+				</div>
+				<div class="row footerabout">
+					<div class="col-md-8">
+						<div class="aboutfo">
+							<h4>About Us</h4>
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/custom_theme/images/logof.png" alt="Footer logo">
+							<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget</p>
+						</div>
+						<div class="findlink">
+							<div class="findlt">
+								<h4>Find Us</h4>
+								<ul class="socialfind">
+									<li><a href="#"><i class="fa fa-envelope"></i></a></li>
+									<li><a href="#"><i class="fa fa-vimeo"></i></a></li>
+									<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+									<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+									<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+								</ul>
+							</div>
+							<div class="linkrt">
+								<h4>Find Us</h4>
+								<ul>
+									<li><a href="#">Healthcare</a></li>
+									<li><a href="#">Caregiver Resources</a></li>
+									<li><a href="#">Vancouver Island Resource Map</a></li>
+								</ul>
+								<ul>
+									<li><a href="#">About Community of Care</a></li>
+									<li><a href="#">Contact Us</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="twitter">
+							<h4>Twitter Widget</h4>
+							<div class="allwidget">
+								<div class="singltwit">
+									<div class="twitw">
+										<i class="fa fa-twitter"></i>
+									</div>
+									<div class="twitwt">
+										<p>Pellentesque habitant morbi tristique senectus et netus et malenec eu libero sit ametus et netus et mal</p>
+										<h5>20 hours ago</h5>
+									</div>
+								</div>
+								<div class="singltwit">
+									<div class="twitw">
+										<i class="fa fa-twitter"></i>
+									</div>
+									<div class="twitwt">
+										<p>Pellentesque habitant morbi tristique senectus et netus et malenec eu libero sit ametus et netus et mal</p>
+										<h5>20 hours ago</h5>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Footer top area -->
+
+		<!-- Footer bottomm -->
+		<div class="footer_bottom">
+			<div class="container">
+				<p>&copy; 2016 Medical Click. All Rights Reserved. Website by <a href="#">ainal.me</a> </p>
+			</div>
+		</div>
+		<!-- Footer bottomm -->
+		
+	</div>
+
+    <!-- jQuery-->
+    <script src="<?php echo get_stylesheet_directory_uri(); ?>/custom_theme/js/jquery_v1.11.3.js"></script>
+    <!-- Bootstrap -->
+    <script src="<?php echo get_stylesheet_directory_uri(); ?>/custom_theme/js/bootstrap.min.js"></script>
+    <!-- Owl carousel -->
+	<script src="<?php echo get_stylesheet_directory_uri(); ?>/custom_theme/js/owl.carousel.min.js"></script>
+	<script>
+		jQuery(document).ready(function() {
+			jQuery('#testim').owlCarousel({
+				loop:true,
+				margin:10,
+				responsiveClass:true,
+				responsive:{
+					0:{
+						items:1,
+						nav:true
+					},
+					600:{
+						items:1,
+						nav:true
+					},
+					1000:{
+						items:1,
+						nav:true,
+						loop:false
+					}
+				}
+			});
+		});		
+	</script>
+  </body>
+</html>

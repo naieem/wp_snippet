@@ -4,7 +4,7 @@ if (!defined('ABSPATH'))
     exit;
 
 /**
-  copyRight by Nsstheme
+copyRight by Naieem Mahmud supto
  */
 //class define
 class nt_login_registration {
@@ -45,6 +45,7 @@ class nt_login_registration {
 
         // only show the registration form to non-logged-in members
         if (!is_user_logged_in()) {
+
 
             global $pippin_load_css;
 
@@ -180,7 +181,6 @@ class nt_login_registration {
 
 // logs a member in after submitting a form
     public function pippin_login_member() {
-
         if (isset($_POST['pippin_user_login']) && wp_verify_nonce($_POST['pippin_login_nonce'], 'pippin-login-nonce')) {
 
             // this returns the user ID and other info from the user name
