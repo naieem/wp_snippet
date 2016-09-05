@@ -1,0 +1,120 @@
+/*
+@copy wirte by nssTHEME
+*/
+
+/* 
+    Created on : Aug 16, 2016, 11:02:00 AM
+    Author     : nsstheme
+*/
+
+h1.nssH{
+    color: red !important;
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 1.1;
+    font-style: normal;
+}
+.controls {
+    background: #699 none repeat scroll 0 0;
+    text-align: center;
+}
+.controls .filters_live,.sorting {
+    background: #7ab800 none repeat scroll 0 0;
+    color: #fff;
+    font-size: 16px;
+    line-height: 1;
+    margin-left: 1px;
+    padding: 12px 14px 9px;
+    text-shadow: 4px 3px 3px #000;
+    text-transform: uppercase;
+}
+.container{
+    background: #ff5252;
+    padding: 2% 0 0 1%;
+    -webkit-backface-visibility: hidden;
+    position: relative;
+    overflow: hidden;
+}
+
+.container:after{
+    content: '';
+    display: inline-block;
+}
+
+.container .mix,
+.container .gap{
+    display: inline-block;
+    width: 47%;
+    margin: 0px 8px;
+}
+
+.container .mix{
+    background: #eeeeee none repeat scroll 0 0;
+    box-shadow: 0 2px 6px #000;
+    display: none;
+    margin-bottom: 2%;
+    text-align: center;
+}
+.mesoHover{
+    position: relative;
+}
+.mesoHover:before {
+  position: absolute;
+  visibility: hidden;
+  left: 100%;
+  right: 0;
+  content: '';
+  transition: all 500ms ease 0s;
+  display: block;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  opacity: 0;
+  background-color: rgba(255, 46, 46, 0.55); 
+}
+.mesoHover:after {
+  position: absolute;
+  visibility: hidden;
+  left: 0;
+  right: 0;
+  content: '';
+  transition: all 600ms ease 0s;
+  display: block;
+  top: 0;
+  bottom: 100%;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  opacity: 0;
+  background-color: rgba(173, 255, 10, 0.49); 
+}
+.mix:hover .mesoHover::after {
+  visibility: visible;
+  bottom: 0;
+  opacity: 1; 
+}
+.mix:hover .mesoHover::before {
+  visibility: visible;
+  left: 0;
+  opacity: 1; 
+}
+
+.mix .nsstitle {
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 10px;
+    line-height: 1.5;
+    padding: 7px;
+}
+.mix .nssdetails {
+    font-size: 12px !important;
+    letter-spacing: 3px;
+    line-height: 1.5;
+    padding: 0 100px 20px;
+}
+
+
+
+
