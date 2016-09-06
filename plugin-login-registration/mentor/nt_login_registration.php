@@ -188,7 +188,7 @@ class nt_login_registration {
 
             if (!$user) {
                 // if the user name doesn't exist
-                pippin_errors()->add('empty_username', __('Invalid username'));
+                $this->pippin_errors()->add('empty_username', __('Invalid username'));
             }
 
             if (!isset($_POST['pippin_user_pass']) || $_POST['pippin_user_pass'] == '') {
