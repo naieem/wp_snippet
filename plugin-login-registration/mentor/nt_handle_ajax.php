@@ -106,8 +106,25 @@ class nt_handle_ajax {
         $founder_img = get_post_meta($id, "founder_img", true);
         $about_text = get_post_meta($id, "about_text", true);
         $footer_text = get_post_meta($id, "footer_text", true);
-        ?>
 
+        /* ###########
+         * Show/Hide logic goes here
+         * ##########
+         */
+        $banner_show = get_post_meta($id, "banner_show", true);
+        $why_show = get_post_meta($id, "why_show", true);
+        $dept_show = get_post_meta($id, "dept_show", true);
+        $founder_show = get_post_meta($id, "founder_show", true);
+
+        $banner_style = ($banner_show === '1') ? "display:none;" : "";
+        $why_style = ($why_show === '1') ? "display:none;" : "";
+        $dept_style = ($dept_show === '1') ? "display:none;" : "";
+        $founder_style = ($founder_show === '1') ? "display:none;" : "";
+        /* ###########
+         * Show/Hide logic ends here
+         * ##########
+         */
+        ?>
         <!-- Header text -->
         <div class="header_txt">
             <div class="container">
@@ -159,12 +176,12 @@ class nt_handle_ajax {
         </div>
         <!-- Menu area --> 
 
-        <!-- Slider area -->
-        <div class="slider_area" style="background: rgba(0, 0, 0, 0) url('<?php echo $banner_bg; ?>') repeat scroll 0 0 / cover;">
+        <!-- Slider/Banner area -->
+        <div class="slider_area" style="background: rgba(0, 0, 0, 0) url('<?php echo $banner_bg; ?>') repeat scroll 0 0 / cover;<?php echo $banner_style; ?>">
             <h1><?php echo $banner_title; ?></h1>
             <p><?php echo $banner_sub_title; ?></p>
         </div>
-        <!-- Slider area --> 
+        <!-- Slider/Banner area --> 
 
         <!-- Tab area -->
         <div class="tab_area">
@@ -256,7 +273,7 @@ class nt_handle_ajax {
         <!-- Tab area --> 
 
         <!-- Why Choose -->
-        <div class="whychoose">
+        <div class="whychoose" style="<?php echo $why_style; ?>">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
@@ -285,7 +302,7 @@ class nt_handle_ajax {
         <!-- Why Choose --> 
 
         <!-- Our Department -->
-        <div class="ourdept" style="background: url(<?php echo $dept_bg; ?>);background-size: cover;">
+        <div class="ourdept" style="background: url(<?php echo $dept_bg; ?>);background-size: cover;<?php echo $dept_style; ?>">
             <div class="container">
                 <div class="row">
                     <div class="deptt">
@@ -320,7 +337,7 @@ class nt_handle_ajax {
         <!-- Our Department --> 
 
         <!-- Our founder -->
-        <div class="ourfounder">
+        <div class="ourfounder" style="<?php echo $founder_style; ?>">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
@@ -526,6 +543,7 @@ class nt_handle_ajax {
             </div>
         </div>
         <!-- Footer bottomm --> 
+
         <?php
         return ob_get_clean();
     }
@@ -600,6 +618,7 @@ class nt_handle_ajax {
                 $founder_desc = $_POST['founder_desc'];
                 update_post_meta($_POST['id'], 'founder_desc', $founder_desc);
             }
+            update_post_meta($_POST['id'], 'founder_show', $_POST['founder_show']);
             $data['image_url'] = wp_get_attachment_url($newupload);
             $data['image_id'] = $newupload;
             $data['result'] = true;
@@ -637,6 +656,7 @@ class nt_handle_ajax {
 
 
             update_post_meta($_POST['id'], 'dept_single', $_POST['dept_single']);
+            update_post_meta($_POST['id'], 'dept_show', $_POST['dept_show']);
 
             $data['image_url'] = wp_get_attachment_url($newupload);
             $data['image_id'] = $newupload;
@@ -721,6 +741,7 @@ class nt_handle_ajax {
             }
             update_post_meta($_POST['id'], 'banner_title', $_POST['banner_title']);
             update_post_meta($_POST['id'], 'banner_sub_title', $_POST['banner_sub_title']);
+            update_post_meta($_POST['id'], 'banner_show', $_POST['banner_show']);
         }
         $data['return_value'] = $this->get_live_result($_POST['id']);
         echo json_encode($data);
@@ -753,6 +774,7 @@ class nt_handle_ajax {
             update_post_meta($_POST['id'], 'why_title', $why_title);
         }
         update_post_meta($_POST['id'], 'why_points', $_POST['why_points']);
+        update_post_meta($_POST['id'], 'why_show', $_POST['why_show']);
         $data['return_value'] = $this->get_live_result($_POST['id']);
 
         echo json_encode($data);

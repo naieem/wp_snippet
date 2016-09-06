@@ -16,13 +16,13 @@ class nt_meta_box {
     }
 
     public function custom_meta_box() {
-        add_meta_box("bg_img_meta_id", "Logo images for the page:", array($this, 'logo_image'), "page", "normal", "low");//logo
-        add_meta_box("banner_meta", "Banner part:", array($this, 'banner_part'), "page", "normal", "low");//Banner
-        add_meta_box("why_meta", "Why choose part:", array($this, 'why_part'), "page", "normal", "low");//Why
-        add_meta_box("department_meta", "Department part:", array($this, 'department_part'), "page", "normal", "low");//Department
-        add_meta_box("founder_meta", "Founder part:", array($this, 'founder_part'), "page", "normal", "low");//Founder
-        add_meta_box("menu_meta", "Menu part:", array($this, 'menu_part'), "page", "normal", "low");//Menu
-        add_meta_box("footer_meta", "Footer part:", array($this, 'footer_part'), "page", "normal", "low");//Footer
+        add_meta_box("bg_img_meta_id", "Logo images for the page:", array($this, 'logo_image'), "page", "normal", "low"); //logo
+        add_meta_box("banner_meta", "Banner part:", array($this, 'banner_part'), "page", "normal", "low"); //Banner
+        add_meta_box("why_meta", "Why choose part:", array($this, 'why_part'), "page", "normal", "low"); //Why
+        add_meta_box("department_meta", "Department part:", array($this, 'department_part'), "page", "normal", "low"); //Department
+        add_meta_box("founder_meta", "Founder part:", array($this, 'founder_part'), "page", "normal", "low"); //Founder
+        add_meta_box("menu_meta", "Menu part:", array($this, 'menu_part'), "page", "normal", "low"); //Menu
+        add_meta_box("footer_meta", "Footer part:", array($this, 'footer_part'), "page", "normal", "low"); //Footer
     }
 
     /*
@@ -30,12 +30,14 @@ class nt_meta_box {
      * Why Part
      * ############## 
      */
+
     public function why_part() {
         global $post;
         $why_title = get_post_meta($post->ID, "why_title", true);
         $why_points = get_post_meta($post->ID, "why_points", true);
         $why_bg = get_post_meta($post->ID, "why_bg", true);
-        //print_r($why_points);
+        $why_show = get_post_meta($post->ID, "why_show", true);
+        $show=($why_show==='1')?"checked":"";
         echo '<label>Title :</label><input type="text" style="width:100%;" name="why_title" size="10" value="' . $why_title . '"/>';
         echo '<div class="point"><label>Points :</label><br>';
         if (is_array($why_points)) {
@@ -50,6 +52,7 @@ class nt_meta_box {
         echo "</div>";
         echo '<br><span class="add_why button button-primary button-large">' . __('Add why') . '</span><br>';
         echo '<br><label>Banner Background:</label><input type="text" style="width:100%;" name="why_bg" value="' . $why_bg . '"/>';
+        echo '<br><label>Display:</label><input type="checkbox" name="why_show" value="1" '.$show.'/>';
         ?>
         <script>
             $ = jQuery.noConflict();
@@ -74,12 +77,15 @@ class nt_meta_box {
      * Department Part
      * ############## 
      */
+
     public function department_part() {
         global $post;
         $dept_title = get_post_meta($post->ID, "dept_title", true);
         $dept_bg = get_post_meta($post->ID, "dept_bg", true);
         $dept_single = get_post_meta($post->ID, "dept_single", true);
         $dept_icons = get_post_meta($post->ID, "dept_icons", true);
+        $dept_show = get_post_meta($post->ID, "dept_show", true);
+        $show=($dept_show==='1')?"checked":"";
         /* Single department adding */
         echo '<label>Title :</label><input type="text" style="width:100%;" name="dept_title" size="10" value="' . $dept_title . '"/>';
         echo '<div class="department_container"><br><b>Single Department :</b><br>';
@@ -126,6 +132,7 @@ class nt_meta_box {
         echo "</ul>";
 
         echo '<br><span class="add_icon button button-primary button-large">' . __('Add new icon') . '</span><br>';
+        echo '<br><label>Display:</label><input type="checkbox" name="dept_show" value="1" '.$show.'/>';
         ?>
         <script>
             $ = jQuery.noConflict();
@@ -159,12 +166,13 @@ class nt_meta_box {
         </script>
         <?php
     }
-    
+
     /*
      * ##############
      * Footer Part
      * ############## 
      */
+
     public function footer_part() {
         global $post;
         $about_text = get_post_meta($post->ID, "about_text", true);
@@ -174,22 +182,26 @@ class nt_meta_box {
         ?>
         <?php
     }
-    
+
     /*
      * ##############
      * Founder Part
      * ############## 
      */
+
     public function founder_part() {
         global $post;
         $founder_title = get_post_meta($post->ID, "founder_title", true);
         $founder_name = get_post_meta($post->ID, "founder_name", true);
         $founder_desc = get_post_meta($post->ID, "founder_desc", true);
         $founder_img = get_post_meta($post->ID, "founder_img", true);
+        $founder_show = get_post_meta($post->ID, "founder_show", true);
+        $show=($founder_show==='1')?"checked":"";
         echo '<label>Title :</label><input type="text" style="width:100%;" name="founder_title" size="10" value="' . $founder_title . '"/>';
         echo '<label>Name :</label><input type="text" style="width:100%;" name="founder_name" size="10" value="' . $founder_name . '"/>';
         echo '<label>Description:</label><textarea style="width:100%;" name="founder_desc">' . $founder_desc . '</textarea>';
         echo '<label>Image :</label><input type="text" style="width:100%;" name="founder_img" size="10" value="' . $founder_img . '"/>';
+        echo '<br><label>Display:</label><input type="checkbox" name="founder_show" value="1" '.$show.'/>';
         ?>
         <?php
     }
@@ -199,6 +211,7 @@ class nt_meta_box {
      * Menu Part
      * ############## 
      */
+
     public function menu_part() {
         global $post;
         $data = get_post_meta($post->ID, "menu", true);
@@ -248,14 +261,18 @@ class nt_meta_box {
      * Banner Part
      * ############## 
      */
+
     public function banner_part() {
         global $post;
         $banner_title = get_post_meta($post->ID, "banner_title", true);
         $banner_sub_title = get_post_meta($post->ID, "banner_sub_title", true);
         $banner_bg = get_post_meta($post->ID, "banner_bg", true);
+        $banner_show = get_post_meta($post->ID, "banner_show", true);
+        $show=($banner_show==='1')?"checked":"";
         echo '<label>Title :</label><input type="text" style="width:100%;" name="banner_title" size="10" value="' . $banner_title . '"/>';
         echo '<label>Subtitle :</label><input type="text" style="width:100%;" name="banner_sub_title" size="10" value="' . $banner_sub_title . '"/>';
         echo '<label>Banner Background:</label><input type="text" style="width:100%;" name="banner_bg" size="10" value="' . $banner_bg . '"/>';
+        echo '<br><label>Display:</label><input type="checkbox" name="banner_show" value="1" '.$show.'/>';
     }
 
     /*
@@ -263,17 +280,19 @@ class nt_meta_box {
      * Logo Part
      * ############## 
      */
+
     public function logo_image() {
         global $post;
         $data = get_post_meta($post->ID, "logo_img", true);
         echo '<label>Logo :</label><input type="text" style="width:100%;" name="logo_img" size="10" value="' . $data . '"/>';
     }
-    
+
     /*
      * ##############
      * Save all meta field
      * ############## 
      */
+
     public function save_details($post_id) {
         global $post;
         // to prevent metadata or custom fields from disappearing...
@@ -291,7 +310,11 @@ class nt_meta_box {
 //            $price_data = $_POST['price_data'];
 //            update_post_meta($post_id, 'price_data', $price_data);
 //        }
-        /* Banner meta update */
+        /*
+         * ##############
+         * Banner Part
+         * ############## 
+         */
         if (isset($_POST['banner_title'])) {
             $banner_title = $_POST['banner_title'];
             update_post_meta($post_id, 'banner_title', $banner_title);
@@ -306,7 +329,11 @@ class nt_meta_box {
             update_post_meta($post_id, 'banner_bg', $banner_bg);
         }
 
-        /* Why meta update */
+        /*
+         * ##############
+         * why Part
+         * ############## 
+         */
         if (isset($_POST['why_title'])) {
             $why_title = $_POST['why_title'];
             update_post_meta($post_id, 'why_title', $why_title);
@@ -319,8 +346,13 @@ class nt_meta_box {
             $why_bg = $_POST['why_bg'];
             update_post_meta($post_id, 'why_bg', $why_bg);
         }
+        update_post_meta($post_id, 'why_show', $_POST['why_show']);
 
-        /* Department meta update */
+        /*
+         * ##############
+         * Department Part
+         * ############## 
+         */
         if (isset($_POST['dept_title'])) {
             $dept_title = $_POST['dept_title'];
             update_post_meta($post_id, 'dept_title', $dept_title);
@@ -337,6 +369,7 @@ class nt_meta_box {
             $dept_icons = $_POST['dept_icons'];
             update_post_meta($post_id, 'dept_icons', $dept_icons);
         }
+        update_post_meta($post_id, 'dept_show', $_POST['dept_show']);
 
         /*
          * ########
@@ -360,14 +393,14 @@ class nt_meta_box {
             $founder_img = $_POST['founder_img'];
             update_post_meta($post_id, 'founder_img', $founder_img);
         }
-
+        update_post_meta($post_id, 'founder_show', $_POST['founder_show']);
         /*
          * ########
          * Menu meta update
          * ########
          */
         update_post_meta($post_id, 'menu', $_POST['menu']);
-        
+
         /*
          * ########
          * Footer meta update
@@ -377,7 +410,7 @@ class nt_meta_box {
             $about_text = $_POST['about_text'];
             update_post_meta($post_id, 'about_text', $about_text);
         }
-        
+
         if (isset($_POST['footer_text'])) {
             $footer_text = $_POST['footer_text'];
             update_post_meta($post_id, 'footer_text', $footer_text);
